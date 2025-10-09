@@ -162,6 +162,7 @@ def to_litellm_messages(messages: list[Message]) -> list[dict]:
                     "role": "assistant",
                     "content": message.content,
                     "tool_calls": tool_calls,
+                    "thoughts": message.thoughts,
                 }
             )
         elif isinstance(message, ToolMessage):
@@ -231,6 +232,7 @@ def generate(
     )
     content = response.message.content
     tool_calls = response.message.tool_calls or []
+    thoughts = response.message.thoughts or []
     tool_calls = [
         ToolCall(
             id=tool_call.id,
@@ -247,6 +249,7 @@ def generate(
         tool_calls=tool_calls,
         cost=cost,
         usage=usage,
+        thoughts = thoughts,
         raw_data=response.to_dict(),
     )
     return message

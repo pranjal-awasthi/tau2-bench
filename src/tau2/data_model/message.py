@@ -1,5 +1,5 @@
 import json
-from typing import Literal, Optional
+from typing import Literal, Optional, Any
 
 from pydantic import BaseModel, Field
 
@@ -90,6 +90,11 @@ class ParticipantMessageBase(BaseModel):
     content: Optional[str] = Field(
         description="The content of the message.", default=None
     )
+
+    thoughts: Optional[list[Any]] = Field(
+        description="The thought blocks for the current turn", default=None
+    )
+
     tool_calls: Optional[list[ToolCall]] = Field(
         description="The tool calls made in the message.", default=None
     )

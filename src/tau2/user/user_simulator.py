@@ -171,6 +171,7 @@ class UserSimulator(BaseUser):
             cost=assistant_message.cost,
             usage=assistant_message.usage,
             raw_data=assistant_message.raw_data,
+            thoughts=assistant_message.thoughts,
         )
 
         # flip the requestor of the tool calls
