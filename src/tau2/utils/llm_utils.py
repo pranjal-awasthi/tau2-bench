@@ -249,7 +249,7 @@ def generate(
         tool_calls=tool_calls,
         cost=cost,
         usage=usage,
-        thoughts = thoughts,
+        thoughts=thoughts,
         raw_data=response.to_dict(),
     )
     return message
