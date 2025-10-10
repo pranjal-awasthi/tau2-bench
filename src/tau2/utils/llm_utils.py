@@ -232,7 +232,7 @@ def generate(
     )
     content = response.message.content
     tool_calls = response.message.tool_calls or []
-    thoughts = response.message.thoughts or []
+    thoughts = [response.message.thinking_blocks[0]['thinking']] or []
     tool_calls = [
         ToolCall(
             id=tool_call.id,
